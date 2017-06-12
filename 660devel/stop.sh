@@ -11,3 +11,5 @@ docker stop tinfish00_dps
 docker rm tinfish00_dps
 docker stop tinfish01_shd
 docker rm tinfish01_shd
+docker stop tinfish10_web_fwd
+docker rm tinfish10_web_fwd
