@@ -21,13 +21,10 @@ RUN yum install which -y
 RUN yum install ntp ntpdate ntp-doc -y
 RUN chkconfig ntpd on
 RUN ntpdate pool.ntp.org
-# 
-#RUN wget -O splunkforwarder-6.4.3-b03109c2bad4-linux-2.6-x86_64.rpm 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=6.4.3&product=universalforwarder&filename=splunkforwarder-6.4.3-b03109c2bad4-linux-2.6-x86_64.rpm&wget=true'
-#RUN rpm -i splunkforwarder-6.4.3-b03109c2bad4-linux-2.6-x86_64.rpm
-#
-RUN wget -O splunkforwarder-6.6.0-1c4f3bbe1aea-linux-2.6-x86_64.rpm 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=6.6.0&product=universalforwarder&filename=splunkforwarder-6.6.0-1c4f3bbe1aea-linux-2.6-x86_64.rpm&wget=true'
-RUN rpm -i splunkforwarder-6.6.0-1c4f3bbe1aea-linux-2.6-x86_64.rpm
-#
+#RUN wget -O splunkforwarder.rpm 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=6.4.3&product=universalforwarder&filename=splunkforwarder-6.4.3-b03109c2bad4-linux-2.6-x86_64.rpm&wget=true'
+#RUN wget -O splunkforwarder.rpm 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=6.6.0&product=universalforwarder&filename=splunkforwarder-6.6.0-1c4f3bbe1aea-linux-2.6-x86_64.rpm&wget=true'
+RUN wget -O splunkforwarder.rpm 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=6.6.2&product=universalforwarder&filename=splunkforwarder-6.6.2-4b804538c686-linux-2.6-x86_64.rpm&wget=true'
+RUN rpm -i splunkforwarder.rpm
 COPY start.sh /start.sh
 COPY splunkclouduf.spl /splunkclouduf.spl
 RUN /start.sh
