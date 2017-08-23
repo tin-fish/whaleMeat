@@ -6,4 +6,4 @@ echo "OPTIMISTIC_ABOUT_FILE_LOCKING = 1" >> /opt/splunkforwarder/etc/splunk-laun
 /opt/splunkforwarder/bin/splunk install app /splunkclouduf.spl -auth admin:changeme
 /opt/splunkforwarder/bin/splunk restart
 echo "#!/bin/bash" > /start.sh
-echo "/opt/splunkforwarder/bin/start" >> /start.sh
+echo "/opt/splunkforwarder/bin/splunk start" >> /start.sh
