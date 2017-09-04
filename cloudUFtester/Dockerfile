@@ -21,6 +21,7 @@ RUN yum install which -y
 RUN yum install ntp ntpdate ntp-doc -y
 RUN chkconfig ntpd on
 RUN ntpdate pool.ntp.org
+RUN export PATH=$PATH:/opt/splunkforwarder/bin
 #RUN wget -O splunkforwarder.rpm 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=6.4.3&product=universalforwarder&filename=splunkforwarder-6.4.3-b03109c2bad4-linux-2.6-x86_64.rpm&wget=true'
 #RUN wget -O splunkforwarder.rpm 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=6.6.0&product=universalforwarder&filename=splunkforwarder-6.6.0-1c4f3bbe1aea-linux-2.6-x86_64.rpm&wget=true'
 #RUN wget -O splunkforwarder.rpm 'https://www.splunk.com/page/download_track?file=6.6.1/linux/splunkforwarder-6.6.1-aeae3fe0c5af-linux-2.6-x86_64.rpm&ac=&wget=true&name=wget&platform=Linux&architecture=x86_64&version=6.6.1&product=universalforwarder&typed=release'
