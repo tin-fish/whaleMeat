@@ -1,7 +1,7 @@
 FROM centos:latest
 LABEL maintainer="@tin_fish"
-LABEL description="tin_fish Splunk Universal Forwarder 6.6.2 Build"
-LABEL version="v1.0"
+LABEL description="tin_fish Splunk Universal Forwarder 6.6.3 Build"
+LABEL version="v1.1"
 #
 # Handy and Splunk pre-requisites
 #
