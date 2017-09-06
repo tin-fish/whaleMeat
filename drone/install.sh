@@ -9,4 +9,4 @@ sed -i 's/disabled = 0//; s/replication_factor = 1//; s/search_factor = 1//; s/m
 /opt/splunk/bin/splunk restart
 export CLUSTERPASSWORD="NoneOfYourBusiness"
 echo "#!/bin/bash" > /install.sh
-echo "/opt/splunk/bin/start" >> /install.sh
+echo "/opt/splunk/bin/splunk start" >> /install.sh

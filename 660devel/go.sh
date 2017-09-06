@@ -23,4 +23,4 @@ docker run -d -h tinfish06_idx -e CLUSTERPASSWORD=$1 -e SIRE=$2.69 --name tinfis
 sleep 30
 docker run -d -h tinfish01_shd -p 8002:8000 -e CLUSTERPASSWORD=$1 -e SIRE=$2.69 --name tinfish01_shd --network tinfishnw --ip $2.68 tinfish/660drone:latest
 sleep 10
-docker run -d -h tinfish10_web_fwd -p 80:80 -e CLUSTERPASSWORD=$1 -e SIRE=$2.69 --name tinfish10_web_fwd --network tinfishnw --ip $2.224 tinfish/661fwd:latest
+docker run -d -h tinfish10_web_fwd -p 80:80 -e CLUSTERPASSWORD=$1 -e SIRE=$2.69 --name tinfish10_web_fwd --network tinfishnw --ip $2.224 tinfish/unifwd:latest
