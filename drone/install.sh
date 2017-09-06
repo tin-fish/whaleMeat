@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "Running Splunk setup routines"
+echo "OPTIMISTIC_ABOUT_FILE_LOCKING = 1" >> /opt/splunk/etc/splunk-launch.conf
 /opt/splunk/bin/splunk start --accept-license
 /opt/splunk/bin/splunk start && hostname | xargs /opt/splunk/bin/splunk set servername $1 -auth admin:changeme
 /opt/splunk/bin/splunk edit cluster-config -mode master -replication_factor 1 -search_factor 1 -secret $CLUSTERPASSWORD -auth admin:changeme
