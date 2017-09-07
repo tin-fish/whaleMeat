@@ -19,9 +19,9 @@ RUN yum install ntp ntpdate ntp-doc -y
 RUN yum install openssh-server -y
 RUN yum install openssh-clients -y
 RUN yum install python-requests -y
+RUN yum install git -y
 RUN chkconfig ntpd on
 RUN ntpdate pool.ntp.org
-RUN export PATH=$PATH:/opt/splunk/bin
 #
 # SSHD configuration
 #
