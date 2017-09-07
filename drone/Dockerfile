@@ -17,8 +17,10 @@ RUN yum install telnet -y
 RUN yum install which -y
 RUN yum install ntp ntpdate ntp-doc -y
 RUN yum install openssh-server -y
+RUN yum install openssh-client -y
 RUN chkconfig ntpd on
 RUN ntpdate pool.ntp.org
+RUN export PATH=$PATH:/opt/splunk/bin
 #
 # SSHD configuration
 #
