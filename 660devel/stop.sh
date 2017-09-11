@@ -13,3 +13,4 @@ docker stop tinfish01_shd
 docker rm tinfish01_shd
 docker stop tinfish10_web_fwd
 docker rm tinfish10_web_fwd
+docker network rm tinfishnw
