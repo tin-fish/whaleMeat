@@ -5,12 +5,10 @@ echo "#" >> /opt/splunk/etc/splunk-launch.conf
 echo "# TinFish MacOS Fix" /opt/splunk/etc/splunk-launch.conf
 echo "OPTIMISTIC_ABOUT_FILE_LOCKING = 1" >> /opt/splunk/etc/splunk-launch.conf
 echo "DNS entry stuff.  Let's see if this works..."
-echo -n "queen.hive     " >> /etc/hosts
 echo -n $IP >> /etc/hosts
-echo ".69" >> /etc/hosts
-echo -n "cluster.hive     " >> /etc/hosts
-echo -n $NET >> /etc/hosts
-echo ".169" >> /etc/hosts
+echo "	queen.hive" >> /etc/hosts
+echo -n $CLUSTER >> /etc/hosts
+echo -n "	cluster.hive" >> /etc/hosts
 echo "GENERATE NOTIFICATION TO SLACK"
 /birth_poc.py
 echo "SPLUNK TIME"

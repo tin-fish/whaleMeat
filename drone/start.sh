@@ -4,6 +4,12 @@ echo "STARTING WITH MacOSX fix"
 echo "#" >> /opt/splunk/etc/splunk-launch.conf
 echo "# TinFish MacOS Fix" /opt/splunk/etc/splunk-launch.conf
 echo "OPTIMISTIC_ABOUT_FILE_LOCKING = 1" >> /opt/splunk/etc/splunk-launch.conf
+echo "DNS entry stuff.  Let's see if this works..."
+echo -n $SIRE >> /etc/hosts
+echo "  queen.hive" >> /etc/hosts
+echo -n $CLUSTER >> /etc/hosts
+echo -n "       cluster.hive" >> /etc/hosts
+echo "Calling Slack"
 /birth_poc.py
 /opt/splunk/bin/splunk start --accept-license
 /opt/splunk/bin/splunk start && hostname | xargs /opt/splunk/bin/splunk set servername $1 -auth admin:changeme
