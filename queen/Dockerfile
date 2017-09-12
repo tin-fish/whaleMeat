@@ -42,6 +42,9 @@ RUN rpm -i splunk-6.6.0-1c4f3bbe1aea-linux-2.6-x86_64.rpm
 COPY ./start.sh /start.sh
 COPY ./birth_poc.py /birth_poc.py
 COPY ./back_poc.py /back_poc.py
+COPY ./slack-notification-alert_102.tgz /slack-notification-alert_102.tgz
+RUN tar xf /slack-notification-alert_102.tgz -C /opt/splunk/etc/apps/
+RUN rm /slack-notification-alert_102.tgz
 EXPOSE 8000
 EXPOSE 8080
 EXPOSE 8089
