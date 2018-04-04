@@ -9,5 +9,4 @@ hostname | xargs /opt/splunkforwarder/bin/splunk set servername $1 -auth admin:c
 /opt/splunkforwarder/bin/splunk stop
 echo "#!/bin/bash" > /start.sh
 echo "/opt/splunkforwarder/bin/splunk start" >> /start.sh
-echo "sleep 30" >> /start.sh
-echo "/heartbeat.sh" >> /start.sh
+echo "python heartbeat.py" >> /start.sh

@@ -1,6 +1,6 @@
 FROM centos:latest
 LABEL maintainer="@tin_fish"
-LABEL description="tin_fish Splunk Universal Forwarder 6.6.3 Build"
+LABEL description="tin_fish Splunk Universal Forwarder 7.0.3 Build"
 LABEL version="v1.1"
 #
 # Handy and Splunk pre-requisites
@@ -32,5 +32,10 @@ RUN rm splunkforwarder.rpm
 COPY splunkclouduf.spl /splunkclouduf.spl
 COPY splunkclouduf_core.spl /splunkclouduf_core.spl
 COPY start.sh /start.sh
-COPY heartbeat.sh /heartbeat.sh
+COPY heartbeat.py /heartbeat.py
+RUN curl "https://bootstrap.pypa.io/get-pip.py" -o "/get-pip.py"
+RUN python /get-pip.py
+RUN pip install splunk-sdk
+RUN echo "[https]" > /etc/python/cert-verification.cfg
+RUN echo "verify=disable" >> /etc/python/cert-verification.cfg
 CMD /start.sh

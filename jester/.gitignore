@@ -1,3 +1,4 @@
 # we do not ever want to git the app!
 *.spl
+*.env
 heartbeat.sh
