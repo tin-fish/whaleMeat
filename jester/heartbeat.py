@@ -46,7 +46,7 @@ logging.info("Working directory:"+myRunningDir)
 def findMarker():
 	try:
 		m=open(myRunningDir+'/lastHeartbeat.dat','r')
-		marker=int(m.read())
+		marker=int(m.read())+1
 		m.close()
 	except:
 		logging.warn("Did not find a dat file, assuming this is the very first time...")

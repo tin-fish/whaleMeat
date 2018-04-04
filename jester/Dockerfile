@@ -5,19 +5,8 @@ LABEL version="v1.1"
 #
 # Handy and Splunk pre-requisites
 #
-RUN yum install psmisc -y
-RUN yum install lsof -y
-RUN yum install dstat -y
 RUN yum install wget -y
-RUN yum install gdb -y
-RUN yum install sysstat -y
-RUN yum install strace -y
-RUN yum install tcpdump -y
-RUN yum install telnet -y
-RUN yum install which -y
 RUN yum install ntp ntpdate ntp-doc -y
-RUN yum install openssh-server -y
-RUN yum install openssh-clients -y
 RUN chkconfig ntpd on
 RUN ntpdate pool.ntp.org
 RUN export PATH=$PATH:/opt/splunkforwarder/bin
