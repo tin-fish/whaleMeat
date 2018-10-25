@@ -1,15 +1,12 @@
 #!/bin/bash
 if [ -z $1 ] || [ -z $2 ] || [ -z $3 ] || [ -z $4 ]
 then
-	echo "Usage go.sh <Cluster Pw> <Class C octets> <Hive> <Slack WebHook>"
-	echo "go.sh PASSWORD 192.168.0 master XXJSSHFF/SSHSHFFHD/SSSD"
+	echo "Usage splunk_env_start.sh <Cluster Pw> <Class C octets> <Hive> <Slack WebHook>"
+	echo "splunk_env_start.sh PASSWORD 192.168.0 master XXJSSHFF/SSHSHFFHD/SSSD"
 	exit 2
 else
 	echo "Variables set!"
 fi
-echo "Doing the yum update..."
-yum update -y
-yum install docker -y
 echo "Bringing in Docker..."
 service docker start
 docker network create --subnet $2.0/24 tinfishnw
