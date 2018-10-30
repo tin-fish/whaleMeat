@@ -35,16 +35,25 @@ EXPOSE 22
 #
 # Splunk Enterprise Installation
 #
-RUN wget -O splunk-6.6.0-1c4f3bbe1aea-linux-2.6-x86_64.rpm 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=6.6.0&product=splunk&filename=splunk-6.6.0-1c4f3bbe1aea-linux-2.6-x86_64.rpm&wget=true'
-RUN rpm -i splunk-6.6.0-1c4f3bbe1aea-linux-2.6-x86_64.rpm
+# RUN wget -O splunk-6.6.0-1c4f3bbe1aea-linux-2.6-x86_64.rpm 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=6.6.0&product=splunk&filename=splunk-6.6.0-1c4f3bbe1aea-linux-2.6-x86_64.rpm&wget=true'
+# RUN rpm -i splunk-6.6.0-1c4f3bbe1aea-linux-2.6-x86_64.rpm
 #RUN wget -O splunk-6.4.1-debde650d26e-linux-2.6-x86_64.rpm 'https://www.splunk.com/page/download_track?file=6.4.1/linux/splunk-6.4.1-debde650d26e-linux-2.6-x86_64.rpm&ac=&wget=true&name=wget&platform=Linux&architecture=x86_64&version=6.4.1&product=splunk&typed=release'
 #RUN rpm -i splunk-6.4.1-debde650d26e-linux-2.6-x86_64.rpm
+RUN wget -O splunk.rpm 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=7.2.0&product=splunk&filename=splunk-7.2.0-8c86330ac18-linux-2.6-x86_64.rpm&wget=true'
+RUN rpm -i splunk.rpm
+RUN rm splunk.rpm
 COPY ./start.sh /start.sh
 COPY ./birth_poc.py /birth_poc.py
 COPY ./back_poc.py /back_poc.py
-COPY ./slack-notification-alert_102.tgz /slack-notification-alert_102.tgz
-RUN tar xf /slack-notification-alert_102.tgz -C /opt/splunk/etc/apps/
-RUN rm /slack-notification-alert_102.tgz
+COPY ./slack-notification-alert_203.tgz /slack-notification-alert_203.tgz
+RUN tar xf /slack-notification-alert_203.tgz -C /opt/splunk/etc/apps/
+RUN rm /slack-notification-alert_203.tgz
+COPY ./victorops-for-splunk_108.tgz /victorops-for-splunk_108.tgz
+RUN tar xf /victorops-for-splunk_108.tgz -C /opt/splunk/etc/apps/
+RUN rm /victorops-for-splunk_108.tgz
+COPY ./splunk-app-for-infrastructure_120.tgz /splunk-app-for-infrastructure_120.tgz
+RUN tar xf /splunk-app-for-infrastructure_120.tgz -C /opt/splunk/etc/apps/
+RUN rm /splunk-app-for-infrastructure_120.tgz
 EXPOSE 8000
 EXPOSE 8080
 EXPOSE 8089
